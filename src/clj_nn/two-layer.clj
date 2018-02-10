@@ -9,6 +9,8 @@
                [1 0 1]
                [1 1 1]]))
 
+(def X_t (transpose X))
+
 ;; output dataset
 (def y (transpose (array [[0 0 1 1]])))
 
@@ -27,7 +29,7 @@
   (let [l1 (nonlin (dot X syn0))
         l1_error (- y l1)
         l1_delta (* l1_error (nonlin l1 true))]
-      [(+ syn0 (dot (transpose X) l1_delta)) l1]))
+      [(+ syn0 (dot X_t l1_delta)) l1]))
 
 (defn train
   []
