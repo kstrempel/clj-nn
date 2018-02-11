@@ -2,7 +2,8 @@
   (:use [clojure.core.matrix]
         [clojure.core.matrix.operators]
         [clojure.core.matrix.random]
-        [clojure.core.matrix.stats]))
+        [clojure.core.matrix.stats]
+        [clojure.core.matrix.dataset]))
 
 ;; Input dataset
 (def X (array [[0 0 1]
@@ -44,9 +45,11 @@
   (loop [param [syn1 syn0 nil]
          cnt 10001]
       (when (== (mod cnt 1000) 0)
-        (println (mean (abs (get param 2)))))
+        (println (format "%f" (get (array (mean (abs (get param 2)))) 0))))
       (if (== cnt 0)
-       (println "done")
+       (do
+         (println "done")
+         (get param 2))
        (recur
          (forward (first param) (second param))
          (dec cnt)))))
