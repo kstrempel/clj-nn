@@ -1,4 +1,4 @@
-(ns clj-nn.two-layer
+(ns clj-nn.one-layer
   (:use [clojure.core.matrix]
         [clojure.core.matrix.operators]
         [clojure.core.matrix.random]))
@@ -9,6 +9,7 @@
                [1 0 1]
                [1 1 1]]))
 
+;; for speedup a transposed version of the input layer
 (def X_t (transpose X))
 
 ;; output dataset
