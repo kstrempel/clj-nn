@@ -7,4 +7,5 @@
   :main ^:skip-aot clj-nn.two-layer
   :dependencies [[org.clojure/clojure "1.8.0"]
                  [net.mikera/core.matrix "0.61.0"]
-                 [proto-repl "0.3.1"]])
+                 [proto-repl "0.3.1"]
+                 [incanter "1.5.7"]])
